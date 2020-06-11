@@ -58,14 +58,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		577C1BC82491668C00AC9405 /* Netowrk Manager */ = {
+		577C1BC82491668C00AC9405 /* Network Manager */ = {
 			isa = PBXGroup;
 			children = (
 				577C1BC9249166AB00AC9405 /* APIConfiguration.swift */,
 				577C1BCB2491672400AC9405 /* Constant.swift */,
 				577C1BCD249167DB00AC9405 /* APIRouter.swift */,
 			);
-			path = "Netowrk Manager";
+			path = "Network Manager";
 			sourceTree = "<group>";
 		};
 		577C1BCF24916BE400AC9405 /* Model */ = {
@@ -98,7 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				577C1BCF24916BE400AC9405 /* Model */,
-				577C1BC82491668C00AC9405 /* Netowrk Manager */,
+				577C1BC82491668C00AC9405 /* Network Manager */,
 				57EB99C7249165EA0096DDE4 /* AppDelegate.swift */,
 				57EB99C9249165EA0096DDE4 /* SceneDelegate.swift */,
 				57EB99CB249165EA0096DDE4 /* ViewController.swift */,
