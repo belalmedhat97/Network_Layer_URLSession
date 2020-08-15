@@ -12,13 +12,14 @@ enum APIRouter: APIConfiguration {
     
     case login(username:String, password:String)
     case getUserDetails
-    case DogImage
+    case DogImage // indicate Success Response
+    case DogError // indicate Error Response
   
     
     // MARK: - HTTPMethod
     var method: HTTPMethod {
         switch self {
-        case .login:
+        case .login,.DogError:
             return .post
         case .getUserDetails,.DogImage:
             return .get
@@ -31,7 +32,7 @@ enum APIRouter: APIConfiguration {
             return .body(["username":username,"password":password]) // for example not used
         case .getUserDetails:
             return.body([:])    // for example not used
-        case .DogImage:
+        case .DogImage,.DogError:
             return.NoParamter // ## used One
         }
     }
@@ -43,7 +44,7 @@ enum APIRouter: APIConfiguration {
             return "/loginEndpoint" // for example not used
         case .getUserDetails:
             return "/userDetailEndpoint" // for example not used
-        case .DogImage:
+        case .DogImage,.DogError:
             return "/api/breeds/image/random" // ## used One
         }
     }

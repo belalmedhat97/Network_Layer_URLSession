@@ -11,6 +11,7 @@
 		577C1BCC2491672400AC9405 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577C1BCB2491672400AC9405 /* Constant.swift */; };
 		577C1BCE249167DB00AC9405 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577C1BCD249167DB00AC9405 /* APIRouter.swift */; };
 		577C1BD124916BF100AC9405 /* DogResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577C1BD024916BF100AC9405 /* DogResponse.swift */; };
+		57D6B72E24E792A400203BF8 /* NetworkCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D6B72D24E792A400203BF8 /* NetworkCaller.swift */; };
 		57EB99C8249165EA0096DDE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EB99C7249165EA0096DDE4 /* AppDelegate.swift */; };
 		57EB99CA249165EA0096DDE4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EB99C9249165EA0096DDE4 /* SceneDelegate.swift */; };
 		57EB99CC249165EA0096DDE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EB99CB249165EA0096DDE4 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 		577C1BCB2491672400AC9405 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		577C1BCD249167DB00AC9405 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		577C1BD024916BF100AC9405 /* DogResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogResponse.swift; sourceTree = "<group>"; };
+		57D6B72D24E792A400203BF8 /* NetworkCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCaller.swift; sourceTree = "<group>"; };
 		57EB99C4249165EA0096DDE4 /* Network layer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Network layer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		57EB99C7249165EA0096DDE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57EB99C9249165EA0096DDE4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				577C1BC9249166AB00AC9405 /* APIConfiguration.swift */,
 				577C1BCB2491672400AC9405 /* Constant.swift */,
 				577C1BCD249167DB00AC9405 /* APIRouter.swift */,
+				57D6B72D24E792A400203BF8 /* NetworkCaller.swift */,
 			);
 			path = "Network Manager";
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				57EB99CC249165EA0096DDE4 /* ViewController.swift in Sources */,
 				577C1BCE249167DB00AC9405 /* APIRouter.swift in Sources */,
 				57EB99C8249165EA0096DDE4 /* AppDelegate.swift in Sources */,
+				57D6B72E24E792A400203BF8 /* NetworkCaller.swift in Sources */,
 				577C1BCC2491672400AC9405 /* Constant.swift in Sources */,
 				57EB99CA249165EA0096DDE4 /* SceneDelegate.swift in Sources */,
 				577C1BCA249166AB00AC9405 /* APIConfiguration.swift in Sources */,
