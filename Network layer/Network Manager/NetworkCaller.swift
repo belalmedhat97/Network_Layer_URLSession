@@ -22,9 +22,12 @@ class NetworkCaller{
                            print(String(data: RequestResponse, encoding: .utf8) ?? "nothing received")
                         completion(.failure(error))
                        }
+                   case 400...499:
+                    completion(.failure(ErrorReturn(Response: response, code: code)))
+                   case 500...599:
+                    completion(.failure(ErrorReturn(Response: response, code: code)))
                    default:
-                    let error = NSError(domain: response.debugDescription, code: code, userInfo:        response.response?.allHeaderFields as? [String: Any])
-                    completion(.failure(error))
+                    completion(.failure(ErrorReturn(Response: response, code: code)))
                    }
                }
            case .failure(let error):
@@ -34,3 +37,7 @@ class NetworkCaller{
    }
 }
 
+func ErrorReturn(Response:AFDataResponse<Data>,code:Int) -> Error{ // handle the error description and the code for it
+    let error = NSError(domain: Response.description, code: code, userInfo:nil)
+    return error
+}

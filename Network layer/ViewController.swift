@@ -40,10 +40,13 @@ class ViewController: UIViewController {
                       //You can handle 'response' when request success (response as LoginResponse)
                       self.DogImage.sd_setImage(with: URL(string: response.message ?? ""), completed: nil)
                    case .failure(let error):
-                    let er = error
-                    print(er)
                     print(error.localizedDescription)
                     print(error)
+                    let alert = UIAlertController(title: "", message: error.localizedDescription, preferredStyle: .alert)
+
+                alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+                alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+                self.present(alert, animated: true)
                     print(error.localizedDescription)
                     print(error.asAFError)
                     print(error.localizedDescription.description)
