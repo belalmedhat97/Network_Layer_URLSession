@@ -7,7 +7,7 @@
 //
 
 import Foundation
-struct DogData:Codable {
+struct DogResponse:Codable {
     var message:String?
     var status:String?
 }

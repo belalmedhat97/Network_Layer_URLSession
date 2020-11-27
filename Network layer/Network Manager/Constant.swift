@@ -7,13 +7,10 @@
 //
 
 import Foundation
-import Alamofire
-
 struct Endpoints {
- 
 static let baseURL = "https://dog.ceo"
-    
 }
+
 enum HTTPHeaderField: String {
     case authentication = "Authorization"
     case contentType = "Content-Type"
@@ -29,7 +26,19 @@ enum ContentType: String {
 }
 
 enum RequestParams {
-    case body(_:Parameters)
-    case url(_:Parameters)
+    case body(_:[String:Any])
+    case url(_:[String:Any])
     case NoParamter
+}
+enum CustomResults<T,E,Error>{ // Using this custom results to decode when error json came  cause it has different reponse body different from success
+    case success(T)
+    case failure(E)
+    case failureError(Error)
+}
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case delete = "DELETE"
+    case put = "PUT"
+    // implement more when needed: post, put, delete, patch, etc.
 }

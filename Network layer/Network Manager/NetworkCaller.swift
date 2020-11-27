@@ -7,37 +7,41 @@
 //
 
 import Foundation
-import Alamofire
-class NetworkCaller{
-    class func Request<T:Codable>(_ url:APIConfiguration,completion: @escaping (Result<T, Error>) -> Void) {
-        AF.request(url).responseData(completionHandler: {response in
-           switch response.result{
-           case .success(let RequestResponse):
-               if let code = response.response?.statusCode{
-                   switch code {
-                   case 200...299:
-                       do {
-                           completion(.success(try JSONDecoder().decode(T.self, from: RequestResponse)))
-                       } catch let error {
-                           print(String(data: RequestResponse, encoding: .utf8) ?? "nothing received")
-                        completion(.failure(error))
-                       }
-                   case 400...499:
-                    completion(.failure(ErrorReturn(Response: response, code: code)))
-                   case 500...599:
-                    completion(.failure(ErrorReturn(Response: response, code: code)))
-                   default:
-                    completion(.failure(ErrorReturn(Response: response, code: code)))
-                   }
-               }
-           case .failure(let error):
-            completion(.failure(error))
+class Network{
+    class func Request<T:Codable,E:Codable>(URL:URLRequest, completion: @escaping (CustomResults<T,E,Error>) -> Void){
+        
+        let session = URLSession(configuration: .default)
+        
+        let RequesterTask = session.dataTask(with: URL) { (data, response, error) in
+            guard error == nil else {return}
+            if let HTTPResponse = response as? HTTPURLResponse {
+                
+                switch HTTPResponse.statusCode {
+                case 200..<300:
+                    if let URLData = data {
+                    do {
+                    let ResponseResult = try JSONDecoder().decode(T.self, from: URLData)
+                        completion(.success(ResponseResult))
+                    }catch{
+                        completion(.failureError(error))
+                    }
+                    }
+                case 400...500:
+                    if let URLDataError = data {
+                        do{
+                    let ErrorResponseResult = try JSONDecoder().decode(E.self, from: URLDataError)
+                        completion(.failure(ErrorResponseResult))
+                    }catch{
+                        completion(.failureError(error))
+                    
+                }
+            }
+                default:
+                    print("")
+                }
+          
         }
-       })
-   }
-}
-
-func ErrorReturn(Response:AFDataResponse<Data>,code:Int) -> Error{ // handle the error description and the code for it
-    let error = NSError(domain: Response.description, code: code, userInfo:nil)
-    return error
+        }
+        RequesterTask.resume()
+    }
 }
