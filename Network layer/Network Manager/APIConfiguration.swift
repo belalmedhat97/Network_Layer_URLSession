@@ -26,6 +26,7 @@ public var urlRequest: URLRequest {
     
     
     request.httpMethod = method.rawValue
+    request.allHTTPHeaderFields = Header
 
     switch parameters {
 
